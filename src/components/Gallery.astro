@@ -1,0 +1,57 @@
+---
+import 'photoswipe/style.css';
+
+const photos = [
+	{src: 'src/assets/fotos/foto1.jpg', alt: 'Foto 1'},
+	{src: 'src/assets/fotos/foto2.jpg', alt: 'Foto 2'},
+	{src: 'src/assets/fotos/foto3.jpg', alt: 'Foto 3'},
+	{src: 'src/assets/fotos/foto4.jpg', alt: 'Foto 3'},
+	{src: 'src/assets/fotos/foto5.jpg', alt: 'Foto 3'},
+	{src: 'src/assets/fotos/foto6.jpg', alt: 'Foto 3'},
+	{src: 'src/assets/fotos/foto7.jpg', alt: 'Foto 3'},
+	{src: 'src/assets/fotos/foto8.jpg', alt: 'Foto 3'},
+    {src: 'src/assets/fotos/foto10.jpg', alt: 'Foto 3'},
+    {src: 'src/assets/fotos/foto11.jpg', alt: 'Foto 3'},
+    {src: 'src/assets/fotos/foto12.jpg', alt: 'Foto 3'},
+    {src: 'src/assets/fotos/foto9.jpg', alt: 'Foto 3'}
+
+
+]
+
+---
+
+<div class=" py-10 relative  shadow-md w-full ">
+<div class="w-3/4 mx-auto " id="gallery">
+    {
+        Array.from({length:12}).map((_, i) => (
+            <a class=""
+            href={photos[i].src}
+            data-pswp-width="2200"
+            data-pswp-height="1800"
+            target="_blank">
+                <img src={photos[i].src} class="w-full rounded-md h-full object-cover block hover:contrast-75 shadow-sm duration-300"/>
+            </a>
+        ))
+    }
+</div>
+</div>
+
+<style>
+    #gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 8px;
+    }
+
+</style>
+
+<script>
+    import PhotoSwipeLightbox from 'photoswipe/lightbox';
+
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '#gallery',
+      children: 'a',
+      pswpModule: () => import('photoswipe'),
+    });
+    lightbox.init();
+</script>

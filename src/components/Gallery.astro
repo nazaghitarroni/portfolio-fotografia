@@ -21,7 +21,7 @@ const photos = [
 ---
 
 <div class=" py-10 relative  shadow-md w-full ">
-<div class="w-3/4 mx-auto " id="gallery">
+<div class="w-3/4 mx-auto  p-2   " id="gallery">
     {
         Array.from({length:12}).map((_, i) => (
             <a class=""
@@ -29,7 +29,7 @@ const photos = [
             data-pswp-width="2200"
             data-pswp-height="1800"
             target="_blank">
-                <img src={photos[i].src} class="w-full rounded-md h-full object-cover block hover:contrast-75 shadow-sm duration-300"/>
+                <img src={photos[i].src} class="w-full rounded-md h-full object-cover block hover:contrast-75 shadow-gray-300 shadow-lg duration-300"/>
             </a>
         ))
     }
